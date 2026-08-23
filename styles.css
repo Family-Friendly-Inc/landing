@@ -1,3 +1,178 @@
-:root { color-scheme: light dark; }
-body { font: 16px/1.5 system-ui, sans-serif; margin: 0; }
-main { max-width: 60rem; margin: 0 auto; padding: 2rem 1.5rem; }
+/* Family Friendly, Inc. — landing page
+ * Palette and type lifted from the PlotLens design system (sage + warm stone).
+ * ponytail: tokens for what this page actually uses, not the full design system.
+ */
+:root {
+  --sage-500: #4F7B69;
+  --sage-600: #3D6654;
+  --sage-700: #2F4E42;
+  --sage-light: #A2D1BC;
+  /* a11y: design's #A8A29E (2.3:1) and #78716C (4.4:1) both fail WCAG AA on
+     this surface; darkened to the nearest passing warm-stone step. */
+  --stone-500: #726B66;
+  --stone-600: #6B6560;
+  --stone-700: #44403C;
+  --stone-800: #292524;
+  --stone-900: #1C1917;
+  --surface: #F7F5F2;
+
+  --font-sans: Geist, ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Merriweather, Georgia, serif;
+}
+
+html { -webkit-text-size-adjust: 100%; background: var(--surface); }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--stone-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--sage-600);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 123, 105, .35);
+  transition: border-color .2s cubic-bezier(.25, 1, .5, 1), color .2s;
+}
+a:hover { color: var(--sage-700); border-bottom-color: var(--sage-700); }
+a:focus-visible {
+  outline: 2px solid var(--sage-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  a { transition: none; }
+}
+
+::selection { background: rgba(162, 209, 188, .35); }
+
+/* Visually hidden but present for screen readers and heading order. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+main {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 56px 24px 72px;
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.intro { display: flex; flex-direction: column; gap: 22px; }
+
+h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(30px, 8.4vw, 42px);
+  line-height: 1.18;
+  letter-spacing: -.015em;
+  color: var(--stone-900);
+}
+
+.lede {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--stone-700);
+  max-width: 34em;
+  text-wrap: pretty;
+}
+
+.rule {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: rgba(28, 25, 23, .09);
+}
+.rule-accent {
+  background: linear-gradient(to right,
+    rgba(79, 123, 105, .45),
+    rgba(28, 25, 23, .09) 42%,
+    rgba(28, 25, 23, 0));
+}
+
+.block { display: flex; flex-direction: column; gap: 16px; }
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--stone-600);
+}
+.eyebrow-accent { color: var(--sage-600); }
+
+.manuscript {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 16.5px;
+  line-height: 1.8;
+  letter-spacing: .01em;
+  color: var(--stone-800);
+  text-wrap: pretty;
+}
+
+.link-row { margin: 2px 0 0; }
+
+.label-link {
+  font-family: var(--font-label);
+  font-size: 15px;
+  letter-spacing: .01em;
+}
+
+.aside {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #57534E;
+  text-wrap: pretty;
+}
+
+.contact { gap: 14px; }
+
+.who {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--stone-700);
+}
+.who-name { color: var(--stone-900); }
+
+.reach {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 15px;
+  line-height: 1.65;
+  align-items: flex-start;
+}
+
+.copyright {
+  font-family: var(--font-label);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--stone-500);
+}
