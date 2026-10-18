@@ -40,7 +40,9 @@ class Check(HTMLParser):
             ref = ref.split("#")[0].split("?")[0]
             # a leading slash resolves from the repo root, the Pages document root
             target = (ROOT / ref.lstrip("/") if ref.startswith("/") else self.path.parent / ref).resolve()
-            if not target.exists():
+            if not target.is_relative_to(ROOT):
+                self.err(f"{tag} {attr}={ref!r} escapes the repo root")
+            elif not target.exists() or (target.is_dir() and not (target / "index.html").exists()):
                 self.err(f"{tag} {attr}={ref!r} does not exist")
 
 
