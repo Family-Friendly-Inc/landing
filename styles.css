@@ -17,7 +17,7 @@
   --ink: #161A33;
   --ink-2: #4A4F6A;
   --tangerine: #FF8A3D;
-  --sage: #2F4E42;
+  --sage: #4F7B69; /* PlotLens brand primary */
   --graphite: #23262F;
   --sun: #FFD23F;
 
@@ -32,7 +32,7 @@
   color-scheme: light;
 }
 
-.field-sage      { --field: var(--sage);      --on-field: var(--porcelain); --on-field-2: #CFE3D9; }
+.field-sage      { --field: var(--sage);      --on-field: #FFFFFF; --on-field-2: #FFFFFF; }
 .field-tangerine { --field: var(--tangerine); --on-field: var(--ink);       --on-field-2: #3A2A20; }
 .field-graphite  { --field: var(--graphite);  --on-field: var(--porcelain); --on-field-2: #CDD0DA; }
 
@@ -147,7 +147,7 @@ a:hover { text-decoration-thickness: 4px; }
 .bar h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
 .bar p { margin: 0; max-width: 46ch; }
 .bar .inline { position: relative; z-index: 1; }
-.bar-plotlens { --c: var(--sage); --on: var(--porcelain); }
+.bar-plotlens { --c: var(--sage); --on: #FFFFFF; }
 .bar-blobs    { --c: var(--tangerine); --on: var(--ink); }
 .bar-oss      { --c: var(--graphite); --on: var(--porcelain); }
 .bar { background: var(--c); color: var(--on); }
