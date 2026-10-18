@@ -16,7 +16,9 @@ No build step, no dependencies. Edit `index.html` and `styles.css` and reload.
 
 ## Deploying
 
-Push to `main`. `.github/workflows/pages.yml` publishes the repo root to GitHub Pages.
+Push to `main`. `.github/workflows/pages.yml` copies an explicit allowlist of paths into `_site/`
+and publishes that. A new top-level page directory (e.g. `games/`) must be added to the `cp` line
+or it will not deploy; repo-only files (README, scripts, workflows) never reach the site.
 
 ## DNS
 
@@ -32,6 +34,7 @@ A records at the DNS provider, plus a `www` CNAME to `family-friendly-inc.github
 
 ## Contributing
 
-See [AGENTS.md](AGENTS.md) — it covers the commands, the invariants, and the accessibility bar.
+Run `python3 scripts/check.py` before pushing. Keep `CNAME` intact, keep third-party actions
+SHA-pinned, and meet WCAG 2.2 AA on every page.
 
 © Family Friendly Inc. All rights reserved.
