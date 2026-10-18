@@ -109,10 +109,9 @@ a:hover { text-decoration-thickness: 4px; }
 .pill:hover { transform: translateX(.35rem); }
 
 /* home: the wordmark is the hero */
-.hero-home { min-height: min(70svh, 46rem); display: flex; align-items: flex-end; }
 .hero-home .hero-in { width: 100%; }
-.hero-home { padding-bottom: clamp(2.5rem, 5vw, 3.5rem); }
-.wordmark { display: block; width: 100%; max-width: min(72rem, 85svh); height: auto; overflow: visible; }
+.hero-home { padding-block: 1.5rem clamp(2.5rem, 5vw, 3.5rem); }
+.wordmark { display: block; width: 100%; max-width: min(72rem, calc((70svh - 17rem) * 2.7)); height: auto; overflow: visible; }
 .wordmark line { stroke: var(--porcelain); stroke-width: 6; stroke-linecap: round; }
 .wordmark line.a { stroke: var(--sun); }
 @media (prefers-reduced-motion: no-preference) {
@@ -227,7 +226,8 @@ a:hover { text-decoration-thickness: 4px; }
   .bar p { padding: 0 1.5rem; }
   .bar .inline { color: var(--ink); }
   .bar :focus-visible { outline-color: var(--ultra); }
-  .hero-home { min-height: 0; padding-top: 3.5rem; }
+  .hero-home { padding-top: 3rem; }
+  .wordmark { max-width: none; }
   .top nav a { font-size: .9375rem; }
   .top ul { gap: .25rem .8rem; }
   .bar:nth-child(n) { width: 100%; }
