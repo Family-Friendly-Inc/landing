@@ -37,8 +37,12 @@ class Check(HTMLParser):
             ref = a.get(attr)
             if not ref or ref.startswith(("http://", "https://", "mailto:", "tel:", "data:", "//", "#")):
                 continue
-            target = (self.path.parent / ref.split("#")[0].split("?")[0]).resolve()
-            if not target.exists():
+            ref = ref.split("#")[0].split("?")[0]
+            # a leading slash resolves from the repo root, the Pages document root
+            target = (ROOT / ref.lstrip("/") if ref.startswith("/") else self.path.parent / ref).resolve()
+            if not target.is_relative_to(ROOT):
+                self.err(f"{tag} {attr}={ref!r} escapes the repo root")
+            elif not target.exists() or (target.is_dir() and not (target / "index.html").exists()):
                 self.err(f"{tag} {attr}={ref!r} does not exist")
 
 
