@@ -257,7 +257,7 @@ a:hover { text-decoration-thickness: 4px; }
   background: #FFFFFF; color: var(--pl-sage-text); border-radius: .5rem; font-weight: 700; text-decoration: none;
 }
 .pl-btn:hover { background: #E0EBE6; }
-.pl-hero :focus-visible { outline-color: #FFFFFF; }
+.pl main .pl-hero :focus-visible { outline-color: #FFFFFF; }
 .pl main :focus-visible { outline: 3px solid var(--pl-ink); outline-offset: 3px; }
 .pl-body { padding-block: clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem); line-height: 1.6; font-size: 1.0625rem; }
 .pl-body h2 { margin: 2.25rem 0 .5rem; font-family: inherit; font-weight: 700; font-size: 1.375rem; line-height: 1.25; font-stretch: 100%; letter-spacing: 0; }
