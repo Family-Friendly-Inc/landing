@@ -111,7 +111,8 @@ a:hover { text-decoration-thickness: 4px; }
 /* home: the wordmark is the hero */
 .hero-home { min-height: min(70svh, 46rem); display: flex; align-items: flex-end; }
 .hero-home .hero-in { width: 100%; }
-.wordmark { display: block; width: 100%; max-width: 72rem; height: auto; overflow: visible; }
+.hero-home { padding-bottom: clamp(2.5rem, 5vw, 3.5rem); }
+.wordmark { display: block; width: 100%; max-width: min(72rem, 85svh); height: auto; overflow: visible; }
 .wordmark line { stroke: var(--porcelain); stroke-width: 6; stroke-linecap: round; }
 .wordmark line.a { stroke: var(--sun); }
 @media (prefers-reduced-motion: no-preference) {
@@ -142,14 +143,15 @@ a:hover { text-decoration-thickness: 4px; }
   .bar:nth-child(3) { animation-delay: .16s; }
   @keyframes slide { from { transform: translateX(-3rem); clip-path: inset(0 100% 0 0 round 999px); } }
 }
-.bar h3 { margin: 0; white-space: nowrap; font: 850 clamp(1.5rem, 3.4vw, 2.5rem)/1 var(--display); font-stretch: 125%; letter-spacing: -.03em; }
+.bar h3 { margin: 0; font: 850 clamp(1.5rem, 3vw, 2.25rem)/1.05 var(--display); font-stretch: 125%; letter-spacing: -.03em; }
 .bar h3 a { text-decoration: none; }
 .bar h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
 .bar p { margin: 0; max-width: 46ch; }
 .bar .inline { position: relative; z-index: 1; }
-.bar-plotlens { background: var(--sage); color: var(--porcelain); }
-.bar-blobs    { background: var(--tangerine); color: var(--ink); }
-.bar-oss      { background: var(--graphite); color: var(--porcelain); }
+.bar-plotlens { --c: var(--sage); --on: var(--porcelain); }
+.bar-blobs    { --c: var(--tangerine); --on: var(--ink); }
+.bar-oss      { --c: var(--graphite); --on: var(--porcelain); }
+.bar { background: var(--c); color: var(--on); }
 .bar-plotlens :focus-visible, .bar-oss :focus-visible { outline-color: var(--porcelain); }
 .bar-blobs :focus-visible { outline-color: var(--ink); }
 .bar h3 a:focus-visible { outline: none; }
@@ -165,15 +167,16 @@ a:hover { text-decoration-thickness: 4px; }
 .facts dd { margin: .2rem 0 0; font-weight: 600; }
 
 /* ---------- reading pages ---------- */
-.prose { max-width: 44rem; margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) 0; }
-.prose.wide { max-width: 56rem; }
+.prose { max-width: calc(72rem + 2 * var(--gutter)); margin: 0 auto; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) 0; }
+.prose > * { max-width: 44rem; }
+.prose > .docs { max-width: 56rem; }
 .prose h2::before { width: 2rem; margin-bottom: .6rem; }
 .prose h2 { margin-top: 2.75rem; margin-bottom: .75rem; font-size: clamp(1.25rem, 2.4vw, 1.5rem); }
 .prose h2:first-child { margin-top: 0; }
 .prose p, .prose address { margin: 0 0 1rem; max-width: 68ch; font-style: normal; }
 .doc-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
 .doc-list a { display: inline-block; padding: .25rem 0; font-weight: 600; }
-.notice { background: var(--porcelain-2); border-radius: 1.5rem; padding: 1.25rem 1.5rem; }
+.notice::before { content: ""; display: block; width: 3rem; height: 6px; margin-bottom: .75rem; border-radius: 999px; background: var(--sun); }
 
 .docs { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-variant-numeric: tabular-nums; }
 .docs th, .docs td { text-align: left; padding: .9rem 1rem .9rem 0; border-bottom: 2px solid var(--porcelain-2); vertical-align: top; }
@@ -216,8 +219,14 @@ a:hover { text-decoration-thickness: 4px; }
 
 /* ---------- narrow ---------- */
 @media (max-width: 44rem) {
-  .bar { grid-template-columns: 1fr; padding: 1.5rem 2.5rem; }
-  .bar h3 { white-space: normal; }
+  /* narrow: the bar is the name, at bar thickness; the description reads below it */
+  .bar { grid-template-columns: 1fr; padding: 0; background: none; color: var(--ink); gap: .6rem; }
+  .bar h3 { background: var(--c); color: var(--on); border-radius: 999px; padding: .85rem 1.5rem; font-size: 1.375rem; }
+  .bar:nth-child(2) h3 { width: 90%; }
+  .bar:nth-child(3) h3 { width: 80%; }
+  .bar p { padding: 0 1.5rem; }
+  .bar .inline { color: var(--ink); }
+  .bar :focus-visible { outline-color: var(--ultra); }
   .hero-home { min-height: 0; padding-top: 3.5rem; }
   .top nav a { font-size: .9375rem; }
   .top ul { gap: .25rem .8rem; }
