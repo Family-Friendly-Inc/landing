@@ -243,9 +243,8 @@ a:hover { text-decoration-thickness: 4px; }
   background: #F7F8F8; color: var(--pl-ink);
   font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif; font-synthesis: none; letter-spacing: 0;
 }
-.pl-in { max-width: calc(44rem + 2 * var(--gutter)); margin: 0 auto; padding-inline: var(--gutter); }
+.pl-in { max-width: calc(72rem + 2 * var(--gutter)); margin: 0 auto; padding-inline: var(--gutter); }
 .pl-hero { background: #121416; color: #FFFFFF; padding-block: clamp(3rem, 9vw, 7rem) clamp(3.5rem, 9vw, 7rem); }
-.pl-in { max-width: calc(72rem + 2 * var(--gutter)); }
 .pl-body > * { max-width: 44rem; }
 .pl-logo { margin: 0; }
 .pl-logo img { display: block; width: min(20rem, 80%); height: auto; }
