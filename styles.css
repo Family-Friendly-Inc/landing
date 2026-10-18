@@ -244,17 +244,19 @@ a:hover { text-decoration-thickness: 4px; }
   font-family: "Atkinson Hyperlegible Next", system-ui, sans-serif; font-synthesis: none; letter-spacing: 0;
 }
 .pl-in { max-width: calc(44rem + 2 * var(--gutter)); margin: 0 auto; padding-inline: var(--gutter); }
-.pl-hero { padding-block: clamp(2.5rem, 7vw, 5rem) clamp(2rem, 5vw, 3.5rem); border-bottom: 1px solid var(--pl-line); }
+.pl-hero { background: #121416; color: #FFFFFF; padding-block: clamp(3rem, 9vw, 7rem) clamp(3.5rem, 9vw, 7rem); }
+.pl-in { max-width: calc(72rem + 2 * var(--gutter)); }
+.pl-body > * { max-width: 44rem; }
 .pl-logo { margin: 0; }
-.pl-logo img { display: block; width: min(17.5rem, 70%); height: auto; }
-.pl-tag { margin: 2.75rem 0 0; color: var(--pl-muted); }
-.pl-hero h1 { margin: 2rem 0 0; font-family: inherit; font-weight: 700; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.12; font-stretch: 100%; letter-spacing: 0; text-wrap: balance; }
-.pl-lede { margin: 1.25rem 0 0; font-size: 1.1875rem; line-height: 1.55; }
+.pl-logo img { display: block; width: min(20rem, 80%); height: auto; }
+.pl-hero h1 { margin: clamp(2.5rem, 6vw, 4rem) 0 0; font-family: inherit; font-weight: 700; font-size: clamp(2.5rem, 7.5vw, 5.75rem); line-height: 1.02; max-width: 15ch; font-stretch: 100%; letter-spacing: 0; text-wrap: balance; }
+.pl-lede { margin: 1.75rem 0 0; max-width: 40rem; font-size: 1.1875rem; line-height: 1.55; }
 .pl-btn {
   display: inline-flex; align-items: center; min-height: 2.75rem; margin-top: .75rem; padding: .6rem 1.25rem;
-  background: var(--pl-sage); color: #FFFFFF; border-radius: .5rem; font-weight: 700; text-decoration: none;
+  background: #86B5A3; color: #121416; border-radius: .5rem; font-weight: 700; text-decoration: none;
 }
-.pl-btn:hover { background: var(--pl-sage-text); }
+.pl-btn:hover { background: #A2D1BC; }
+.pl main .pl-hero :focus-visible { outline-color: #FFFFFF; }
 .pl main :focus-visible { outline: 3px solid var(--pl-ink); outline-offset: 3px; }
 .pl-body { padding-block: clamp(1.5rem, 4vw, 3rem) clamp(3rem, 6vw, 4.5rem); line-height: 1.6; font-size: 1.0625rem; }
 .pl-body h2 { margin: 2.25rem 0 .5rem; font-family: inherit; font-weight: 700; font-size: 1.375rem; line-height: 1.25; font-stretch: 100%; letter-spacing: 0; }
