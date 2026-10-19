@@ -84,7 +84,7 @@ a:hover { text-decoration-thickness: 4px; }
   border-radius: 999px; background: currentColor; transform: scaleX(0); transform-origin: left;
   transition: transform .35s var(--ease);
 }
-.top nav a:hover::after, .top nav a[aria-current="page"]::after { transform: none; }
+.top nav a:hover::after, .top nav a[aria-current]::after { transform: none; }
 
 /* ---------- hero field ---------- */
 .hero { background: var(--field); color: var(--on-field); padding: clamp(2rem, 6vw, 5rem) var(--gutter) clamp(3rem, 8vw, 6rem); }
@@ -147,14 +147,14 @@ a:hover { text-decoration-thickness: 4px; }
 .bar h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
 .bar p { margin: 0; max-width: 46ch; }
 .bar .inline { position: relative; z-index: 1; }
-.bar .links { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin-top: .75rem; font-weight: 600; }
+.bar .links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin-top: .75rem; font-weight: 600; }
 .bar .links .soon { flex-basis: 100%; }
 .bar-plotlens { --c: var(--sage); --on: #FFFFFF; }
-.bar-blobs    { --c: var(--tangerine); --on: var(--ink); }
+.bar-nogglets    { --c: var(--tangerine); --on: var(--ink); }
 .bar-oss      { --c: var(--graphite); --on: var(--porcelain); }
 .bar { background: var(--c); color: var(--on); }
 .bar-plotlens :focus-visible, .bar-oss :focus-visible { outline-color: var(--porcelain); }
-.bar-blobs :focus-visible { outline-color: var(--ink); }
+.bar-nogglets :focus-visible { outline-color: var(--ink); }
 .bar h3 a:focus-visible { outline: none; }
 .bar:has(h3 a:focus-visible) { outline: 3px solid var(--ultra); outline-offset: 4px; }
 
