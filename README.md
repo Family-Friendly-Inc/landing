@@ -18,7 +18,7 @@ No build step, no dependencies. Edit `index.html` and `styles.css` and reload.
 
 Push to `main`. `.github/workflows/pages.yml` copies an explicit allowlist of paths into `_site/`
 and publishes that. A new top-level page directory (e.g. `games/`) must be added to the `cp` line
-or it will not deploy; repo-only files (README, scripts, workflows) never reach the site.
+or it will not deploy (top-level files like `robots.txt` and `sitemap.xml` too, and add new indexable pages to `sitemap.xml`); repo-only files (README, scripts, workflows) never reach the site.
 
 ## DNS
 
