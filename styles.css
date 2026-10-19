@@ -1,6 +1,6 @@
 /* Family Friendly, Inc. — Bar System
  * One module: a rounded bar on a 30-unit grid. Mark, wordmark, product rows,
- * rules and the Block Blobs art are all built from it.
+ * rules and the Nogglets art are all built from it.
  */
 @font-face {
   font-family: "Archivo";
@@ -186,7 +186,7 @@ a:hover { text-decoration-thickness: 4px; }
   background: var(--sun); color: var(--ink); font-size: .8125rem; font-weight: 700;
 }
 
-/* ---------- Block Blobs ---------- */
+/* ---------- Nogglets ---------- */
 .hero-game .hero-in { display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem 4rem; align-items: center; }
 .hero-game h1 { font-size: clamp(2.25rem, 5vw, 4rem); }
 .badge { display: flex; align-items: center; gap: .75rem; margin: 1.5rem 0 0; font-weight: 800; font-size: 1.125rem; }
