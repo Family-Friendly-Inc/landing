@@ -147,6 +147,8 @@ a:hover { text-decoration-thickness: 4px; }
 .bar h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
 .bar p { margin: 0; max-width: 46ch; }
 .bar .inline { position: relative; z-index: 1; }
+.bar .links { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin-top: .75rem; font-weight: 600; }
+.bar .links .soon { flex-basis: 100%; }
 .bar-plotlens { --c: var(--sage); --on: #FFFFFF; }
 .bar-blobs    { --c: var(--tangerine); --on: var(--ink); }
 .bar-oss      { --c: var(--graphite); --on: var(--porcelain); }
