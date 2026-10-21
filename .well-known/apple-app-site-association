@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7RNETT85AA.com.familyfriendlyinc.block-blobs"],
+        "components": [
+          { "/": "/games/nogglets/daily/*", "comment": "Nogglets Daily result links" }
+        ]
+      }
+    ]
+  }
+}
