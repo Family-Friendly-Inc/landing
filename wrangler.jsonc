@@ -3,6 +3,11 @@
   "name": "familyfriendlyinc",
   "main": "worker.js",
   "compatibility_date": "2026-10-01",
+  // Custom domains: deploy creates the DNS records. Hostnames must have no existing A/CNAME first.
+  "routes": [
+    { "pattern": "familyfriendlyinc.com", "custom_domain": true },
+    { "pattern": "www.familyfriendlyinc.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./_site",
     "binding": "ASSETS",
