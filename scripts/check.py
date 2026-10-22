@@ -4,7 +4,7 @@
 ponytail: stdlib HTMLParser, no deps. Swap for a real a11y scanner (axe) only
 if the page grows past a handful of components.
 """
-import sys, pathlib
+import json, sys, pathlib
 from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -35,7 +35,8 @@ class Check(HTMLParser):
             self.err("target=_blank link is missing rel=noopener")
         for attr in ("href", "src"):
             ref = a.get(attr)
-            if not ref or ref.startswith(("http://", "https://", "mailto:", "tel:", "data:", "//", "#")):
+            # any scheme (https:, mailto:, nogglets:) or anchor is not a local file
+            if not ref or ":" in ref.split("/")[0] or ref.startswith(("//", "#")):
                 continue
             ref = ref.split("#")[0].split("?")[0]
             # a leading slash resolves from the repo root, the Pages document root
@@ -62,6 +63,12 @@ for page in pages:
 cname = ROOT / "CNAME"
 if cname.exists() and len(cname.read_text().strip().splitlines()) != 1:
     errors.append("CNAME must contain exactly one domain")
+
+aasa = ROOT / ".well-known" / "apple-app-site-association"
+try:
+    json.loads(aasa.read_text(encoding="utf-8"))
+except (OSError, ValueError) as e:
+    errors.append(f"{aasa.relative_to(ROOT)}: not valid JSON ({e})")
 
 for e in errors:
     print(f"error: {e}", file=sys.stderr)
