@@ -1,0 +1,12 @@
+// Cloudflare Workers Static Assets. _site is assembled by the cp line in the deploy workflow.
+{
+  "name": "familyfriendlyinc",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/games/nogglets/daily", "/games/nogglets/daily/*"]
+  }
+}
