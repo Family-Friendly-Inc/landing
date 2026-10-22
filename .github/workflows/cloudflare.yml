@@ -1,7 +1,9 @@
 name: Deploy to Cloudflare
 
-# Manual only until the hosting cutover. Deploys the Worker and its static assets.
+# Production deploy of the Worker and its static assets (serves familyfriendlyinc.com).
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

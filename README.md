@@ -20,12 +20,12 @@ Push to `main`. `.github/workflows/pages.yml` copies an explicit allowlist of pa
 and publishes that. A new top-level page directory (e.g. `games/`) must be added to the `cp` line
 or it will not deploy (top-level files like `robots.txt` and `sitemap.xml` too, and add new indexable pages to `sitemap.xml`); repo-only files (README, scripts, workflows) never reach the site. Dot-directories such as `.well-known/` also need the `include-hidden-files: true` input on the upload step, which `pages.yml` sets.
 
-### Cloudflare (migration in progress)
+### Cloudflare
 
-The site is moving to Cloudflare Workers static assets. `wrangler.jsonc` serves the same `_site/`
+The site is served by Cloudflare Workers static assets; GitHub Pages still deploys as a rollback until it is retired. `wrangler.jsonc` serves the same `_site/`
 allowlist; `worker.js` handles only `/games/nogglets/daily/<N>` (fills `games/nogglets/daily/index.html`,
 404 for non-numeric N or N < 1). `_headers` sets response headers, including `application/json` for
-`/.well-known/apple-app-site-association`. `.github/workflows/cloudflare.yml` deploys it (manual for now;
+`/.well-known/apple-app-site-association`. `.github/workflows/cloudflare.yml` deploys it on every push to `main` (also runnable by hand;
 needs `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets) and copies the same allowlist plus `_headers`.
 No `package.json`: CI runs a pinned `npx wrangler`.
 
